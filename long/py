@@ -1,0 +1,23 @@
+    import math
+     
+    def fun(arr, k):
+        mx = -math.inf
+        length = len(arr)-k
+        for i in arr[length : ]:
+            mx = max(mx, i)
+     
+        front = 0
+        rear = 0+k
+        while rear <= length:
+            mx = max(mx, arr[front]+arr[rear])
+            front += 1
+            rear += 1
+        return mx
+     
+     
+    if __name__ == '__main__':
+        test = int(input())
+        for i in range(test):
+            size, jump = map(int, input().split())
+            lst = [int(i) for i in input().split()]
+            print(fun(lst, jump))
